@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Весь существующий CSS код остается без изменений */
         :root {
             --primary: #6a89cc;
             --secondary: #4a69bd;
@@ -19,6 +18,8 @@
             --polygon-2: #3498db;
             --polygon-3: #2ecc71;
             --polygon-4: #e74c3c;
+            --card-bg: rgba(255, 255, 255, 0.08);
+            --card-border: rgba(255, 255, 255, 0.12);
         }
         
         * {
@@ -34,6 +35,7 @@
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
+            line-height: 1.6;
         }
         
         /* Полигональный фон с анимацией */
@@ -44,20 +46,20 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.15;
+            opacity: 0.1;
         }
         
         .polygon {
             position: absolute;
             background: var(--polygon-1);
             clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-            animation: float 20s infinite ease-in-out;
+            animation: float 25s infinite ease-in-out;
             opacity: 0.7;
         }
         
         .polygon:nth-child(1) {
-            width: 300px;
-            height: 300px;
+            width: 250px;
+            height: 250px;
             top: 10%;
             left: 5%;
             animation-delay: 0s;
@@ -65,47 +67,47 @@
         }
         
         .polygon:nth-child(2) {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             top: 60%;
             left: 80%;
-            animation-delay: 2s;
+            animation-delay: 3s;
             background: var(--polygon-2);
         }
         
         .polygon:nth-child(3) {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             top: 20%;
             left: 70%;
-            animation-delay: 4s;
+            animation-delay: 6s;
             background: var(--polygon-3);
         }
         
         .polygon:nth-child(4) {
-            width: 250px;
-            height: 250px;
+            width: 200px;
+            height: 200px;
             top: 70%;
             left: 10%;
-            animation-delay: 6s;
+            animation-delay: 9s;
             background: var(--polygon-4);
         }
         
         .polygon:nth-child(5) {
-            width: 180px;
-            height: 180px;
+            width: 150px;
+            height: 150px;
             top: 80%;
             left: 60%;
-            animation-delay: 8s;
+            animation-delay: 12s;
             background: var(--polygon-1);
         }
         
         .polygon:nth-child(6) {
-            width: 220px;
-            height: 220px;
+            width: 180px;
+            height: 180px;
             top: 15%;
             left: 20%;
-            animation-delay: 10s;
+            animation-delay: 15s;
             background: var(--polygon-2);
         }
         
@@ -114,10 +116,10 @@
                 transform: translateY(0) rotate(0deg);
             }
             33% {
-                transform: translateY(-20px) rotate(5deg);
+                transform: translateY(-15px) rotate(3deg);
             }
             66% {
-                transform: translateY(10px) rotate(-5deg);
+                transform: translateY(8px) rotate(-3deg);
             }
         }
         
@@ -125,7 +127,7 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 15px;
         }
         
         /* Шапка */
@@ -133,12 +135,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 15px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 10;
         }
         
         .logo {
-            font-size: 28px;
+            font-size: 22px;
             font-weight: 700;
             color: var(--light);
             text-decoration: none;
@@ -151,8 +155,8 @@
         }
         
         .logo i {
-            margin-right: 10px;
-            font-size: 32px;
+            margin-right: 8px;
+            font-size: 24px;
         }
         
         /* Навигация */
@@ -162,7 +166,7 @@
         }
         
         nav ul li {
-            margin-left: 30px;
+            margin-left: 20px;
         }
         
         nav ul li a {
@@ -173,10 +177,12 @@
             position: relative;
             display: flex;
             align-items: center;
+            font-size: 14px;
         }
         
         nav ul li a i {
-            margin-right: 8px;
+            margin-right: 6px;
+            font-size: 16px;
         }
         
         nav ul li a:hover {
@@ -198,6 +204,70 @@
             width: 100%;
         }
         
+        /* Мобильное меню */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 100;
+        }
+        
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(12, 36, 97, 0.95);
+            z-index: 90;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .mobile-nav.active {
+            display: flex;
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+            text-align: center;
+        }
+        
+        .mobile-nav ul li {
+            margin: 20px 0;
+        }
+        
+        .mobile-nav ul li a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mobile-nav ul li a i {
+            margin-right: 10px;
+            font-size: 22px;
+        }
+        
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 28px;
+            cursor: pointer;
+        }
+        
         /* Главный экран */
         .hero {
             display: flex;
@@ -206,34 +276,38 @@
             justify-content: center;
             text-align: center;
             min-height: 80vh;
-            padding: 50px 0;
+            padding: 40px 0;
         }
         
         .hero h1 {
-            font-size: 48px;
+            font-size: 36px;
             margin-bottom: 20px;
             background: linear-gradient(to right, var(--light), var(--primary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: fadeIn 1s ease-out;
+            line-height: 1.3;
         }
         
         .hero p {
-            font-size: 20px;
+            font-size: 18px;
             max-width: 600px;
             margin-bottom: 40px;
             line-height: 1.6;
             animation: fadeIn 1.5s ease-out;
+            color: rgba(255, 255, 255, 0.9);
         }
         
         .cta-buttons {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             animation: fadeIn 2s ease-out;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         
         .btn {
-            padding: 12px 30px;
+            padding: 12px 25px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
@@ -242,6 +316,7 @@
             align-items: center;
             position: relative;
             overflow: hidden;
+            font-size: 16px;
         }
         
         .btn i {
@@ -276,13 +351,13 @@
         
         /* Подборки */
         .collections {
-            padding: 80px 0;
+            padding: 60px 0;
         }
         
         .section-title {
             text-align: center;
-            font-size: 36px;
-            margin-bottom: 50px;
+            font-size: 32px;
+            margin-bottom: 40px;
             position: relative;
         }
         
@@ -292,7 +367,7 @@
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
+            width: 80px;
             height: 3px;
             background: var(--primary);
         }
@@ -300,26 +375,29 @@
         .collections-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
+            gap: 25px;
         }
         
         .collection-card {
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--card-bg);
             border-radius: 15px;
             overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--card-border);
             cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         
         .collection-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
         
         .collection-img {
-            height: 200px;
+            height: 180px;
             width: 100%;
             background-size: cover;
             background-position: center;
@@ -338,10 +416,13 @@
         
         .collection-content {
             padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .collection-title {
-            font-size: 20px;
+            font-size: 18px;
             margin-bottom: 10px;
             color: var(--light);
         }
@@ -350,11 +431,12 @@
             font-size: 14px;
             color: rgba(255, 255, 255, 0.7);
             line-height: 1.5;
+            flex-grow: 1;
         }
         
         /* Страница подборки */
         .collection-page {
-            padding: 50px 0;
+            padding: 40px 0;
             min-height: 80vh;
             display: none;
         }
@@ -364,9 +446,12 @@
             align-items: center;
             color: var(--light);
             text-decoration: none;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             transition: color 0.3s;
             font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
         }
         
         .back-btn i {
@@ -375,14 +460,15 @@
         
         .back-btn:hover {
             color: var(--primary);
+            background: rgba(255, 255, 255, 0.15);
         }
         
         .collection-detail {
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--card-bg);
             border-radius: 15px;
-            padding: 30px;
+            padding: 25px;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--card-border);
             animation: fadeIn 0.5s ease-out;
         }
         
@@ -393,10 +479,10 @@
         }
         
         .collection-cover {
-            width: 200px;
-            height: 280px;
+            width: 180px;
+            height: 250px;
             border-radius: 10px;
-            margin-right: 30px;
+            margin-right: 25px;
             background-size: cover;
             background-position: center;
             flex-shrink: 0;
@@ -404,7 +490,7 @@
         }
         
         .collection-info h2 {
-            font-size: 32px;
+            font-size: 28px;
             margin-bottom: 15px;
         }
         
@@ -479,7 +565,7 @@
         /* Стили для мемов */
         .meme-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 20px;
             margin-top: 30px;
         }
@@ -497,7 +583,7 @@
         
         .meme-img {
             width: 100%;
-            height: 300px;
+            height: 250px;
             object-fit: cover;
         }
         
@@ -521,18 +607,18 @@
         }
         
         /* Адаптивность */
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
+            .container {
+                padding: 15px;
+            }
+            
             .hero h1 {
-                font-size: 36px;
+                font-size: 32px;
             }
             
             .hero p {
-                font-size: 18px;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
+                font-size: 17px;
+                padding: 0 15px;
             }
             
             .collection-header {
@@ -544,14 +630,48 @@
                 margin-right: 0;
                 margin-bottom: 20px;
             }
-            
-            nav ul {
-                flex-direction: column;
-                gap: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
             }
             
-            nav ul li {
-                margin-left: 0;
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .collections-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .collection-detail {
+                padding: 20px;
             }
             
             .item {
@@ -568,6 +688,41 @@
             .meme-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .admin-list {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 24px;
+            }
+            
+            .hero p {
+                font-size: 15px;
+            }
+            
+            .collections-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .collection-img {
+                height: 160px;
+            }
+            
+            .collection-cover {
+                width: 150px;
+                height: 210px;
+            }
+            
+            .collection-info h2 {
+                font-size: 24px;
+            }
+            
+            .meme-img {
+                height: 200px;
+            }
         }
         
         /* Футер */
@@ -577,6 +732,56 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             margin-top: 50px;
             color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Дополнительные улучшения */
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid var(--primary);
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 99;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .scroll-to-top.visible {
+            opacity: 1;
+        }
+        
+        .scroll-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
         }
     </style>
 </head>
@@ -591,11 +796,33 @@
         <div class="polygon"></div>
     </div>
     
+    <!-- Кнопка прокрутки наверх -->
+    <div class="scroll-to-top" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+    
+    <!-- Мобильное меню -->
+    <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <div class="mobile-nav">
+        <button class="close-menu">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul>
+            <li><a href="#" onclick="showHome()"><i class="fas fa-home"></i>Главная</a></li>
+            <li><a href="#" onclick="showCollections()"><i class="fas fa-list"></i>Подборки</a></li>
+            <li><a href="https://t.me/+EzySTKbVu_BlY2Yy" target="_blank"><i class="fab fa-telegram"></i>Наш Канал</a></li>
+            <li><a href="https://t.me/+E5OGrLCV_q81OTMy" target="_blank"><i class="fas fa-comments"></i>Добри чатик</a></li>
+        </ul>
+    </div>
+    
     <div class="container">
         <!-- Шапка -->
         <header>
             <a href="#" class="logo" onclick="showHome()"><i class="fas fa-heart"></i>Философия <span>Доброты</span></a>
-            <nav>
+            <nav class="desktop-nav">
                 <ul>
                     <li><a href="#" onclick="showHome()"><i class="fas fa-home"></i>Главная</a></li>
                     <li><a href="#" onclick="showCollections()"><i class="fas fa-list"></i>Подборки</a></li>
@@ -746,8 +973,7 @@
                         <div class="item-content">
                             <h3>10. Форрест Гамп (1994)</h3>
                             <p>Жизненная история человека с низким IQ, который неосознанно влияет на ключевые события американской истории. Трагическая любовь Форреста к Дженни и его простодушная мудрость заставляют плакать от умиления и грусти одновременно.</p>
-              
-                      </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -803,7 +1029,7 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="item-img" style="https://avatars.mds.yandex.net/get-kinopoisk-image/6201401/7b6a5313-0a78-4bd3-909d-41f641de7272/600x900')"></div>
+                        <div class="item-img" style="background-image: url('https://avatars.mds.yandex.net/get-kinopoisk-image/6201401/7b6a5313-0a78-4bd3-909d-41f641de7272/600x900')"></div>
                         <div class="item-content">
                             <h3>6. Поллианна (1960)</h3>
                             <p>Классическая история девочки-сироты, которая приезжает жить к строгой тете и своей "игрой в радость" меняет жизнь всего города. Фильм учит находить хорошее в любой ситуации и верить в силу позитивного мышления.</p>
@@ -877,7 +1103,7 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="item-img" style="https://cdn.litres.ru/pub/c/cover_415/33812976.jpg')"></div>
+                        <div class="item-img" style="background-image: url('https://cdn.litres.ru/pub/c/cover_415/33812976.jpg')"></div>
                         <div class="item-content">
                             <h3>4. "Искусство любить" Эрих Фромм</h3>
                             <p>Глубокий анализ природы любви как искусства, требующего знаний и усилий. Фромм различает зрелую любовь от невротической attachment и показывает, что настоящая любовь - это активная забота о жизни и духовном развитии другого человека, основанная на уважении и ответственности.</p>
@@ -946,6 +1172,7 @@
             </div>
         </div>
     </div>
+    
     <!-- НОВАЯ ПОДБОРКА - МЕМЧИКИ С КОТЯТАМИ -->
     <div id="cat-memes" class="collection-page">
         <div class="container">
@@ -1009,6 +1236,7 @@
             document.getElementById('philosophy-books').style.display = 'none';
             document.getElementById('admin-favorites').style.display = 'none';
             document.getElementById('cat-memes').style.display = 'none';
+            closeMobileMenu();
             window.scrollTo(0, 0);
         }
         
@@ -1020,6 +1248,7 @@
             document.getElementById('philosophy-books').style.display = 'none';
             document.getElementById('admin-favorites').style.display = 'none';
             document.getElementById('cat-memes').style.display = 'none';
+            closeMobileMenu();
             window.scrollTo(0, 0);
         }
         
@@ -1033,8 +1262,47 @@
             document.getElementById('cat-memes').style.display = 'none';
             
             document.getElementById(collectionId).style.display = 'block';
+            closeMobileMenu();
             window.scrollTo(0, 0);
         }
+        
+        // Мобильное меню
+        function toggleMobileMenu() {
+            const mobileNav = document.querySelector('.mobile-nav');
+            mobileNav.classList.toggle('active');
+        }
+        
+        function closeMobileMenu() {
+            const mobileNav = document.querySelector('.mobile-nav');
+            mobileNav.classList.remove('active');
+        }
+        
+        // Прокрутка наверх
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Отслеживание прокрутки для кнопки "Наверх"
+        window.addEventListener('scroll', function() {
+            const scrollToTopBtn = document.querySelector('.scroll-to-top');
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        // Обработчики событий для мобильного меню
+        document.querySelector('.mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+        document.querySelector('.close-menu').addEventListener('click', closeMobileMenu);
+        
+        // Закрытие мобильного меню при клике на ссылку
+        document.querySelectorAll('.mobile-nav a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
         
         // Показываем главную страницу при загрузке
         window.onload = function() {
