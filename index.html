@@ -786,7 +786,6 @@
     </style>
 </head>
 <body>
-    <!-- Полигональный фон -->
     <div class="polygon-bg">
         <div class="polygon"></div>
         <div class="polygon"></div>
@@ -795,13 +794,9 @@
         <div class="polygon"></div>
         <div class="polygon"></div>
     </div>
-    
-    <!-- Кнопка прокрутки наверх -->
     <div class="scroll-to-top" onclick="scrollToTop()">
         <i class="fas fa-chevron-up"></i>
     </div>
-    
-    <!-- Мобильное меню -->
     <button class="mobile-menu-btn">
         <i class="fas fa-bars"></i>
     </button>
@@ -819,7 +814,6 @@
     </div>
     
     <div class="container">
-        <!-- Шапка -->
         <header>
             <a href="#" class="logo" onclick="showHome()"><i class="fas fa-heart"></i>Философия <span>Доброты</span></a>
             <nav class="desktop-nav">
@@ -831,8 +825,6 @@
                 </ul>
             </nav>
         </header>
-        
-        <!-- Главный экран -->
         <section id="home" class="hero">
             <h1>Место, где доброта становится философией</h1>
             <p>Для тех, кто ищет поддержку, понимание и тепло в этом мире. Здесь мы делимся добротой, мудростью и вдохновением, помогая друг другу пережить трудные моменты и найти свет даже в самые темные дни.</p>
@@ -841,8 +833,6 @@
                 <a href="https://t.me/+E5OGrLCV_q81OTMy" class="btn btn-secondary" target="_blank"><i class="fas fa-comments"></i>Добри чатик</a>
             </div>
         </section>
-        
-        <!-- Подборки -->
         <section id="collections-section" class="collections" style="display: none;">
             <h2 class="section-title">Наши подборки</h2>
             <div class="collections-grid">
@@ -877,8 +867,6 @@
                         <p class="collection-desc">Персональные рекомендации от создателей сообщества. Фильмы, которые тронули их сердца и изменили мировоззрение.</p>
                     </div>
                 </div>
-                
-                <!-- НОВАЯ ПОДБОРКА - МЕМЧИКИ С КОТЯТАМИ -->
                 <div class="collection-card" onclick="showCollection('cat-memes')">
                     <div class="collection-img" style="background-image: url('https://img.freepik.com/premium-photo/amazed-cat-isolated-yellow-background_132358-26573.jpg')"></div>
                     <div class="collection-content">
@@ -886,13 +874,16 @@
                         <p class="collection-desc">это прост мемчики))</p>
                     </div>
                 </div>
+                <div class="collection-card" onclick="showCollection('top-anime')">
+                    <div class="collection-img" style="background-image: url('https://trikky.ru/wp-content/blogs.dir/1/files/2018/05/mashup_anime_collage_by_dinocojv-d8af5lu.jpg')"></div>
+                    <div class="collection-content">
+                        <h3 class="collection-title">Топ-10 Аниме</h3>
+                        <p class="collection-desc">Лучшие аниме-сериалы, которые заставят задуматься о жизни, борьбе и поиске себя в этом сложном мире.</p>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
-    
-    <!-- Страницы подборок (скрыты по умолчанию) -->
-    
-    <!-- Подборка грустных фильмов -->
     <div id="sad-movies" class="collection-page">
         <div class="container">
             <a href="#" class="back-btn" onclick="showCollections()"><i class="fas fa-arrow-left"></i>Назад к подборкам</a>
@@ -979,8 +970,6 @@
             </div>
         </div>
     </div>
-    
-    <!-- Подборка добрых фильмов -->
     <div id="kind-movies" class="collection-page">
         <div class="container">
             <a href="#" class="back-btn" onclick="showCollections()"><i class="fas fa-arrow-left"></i>Назад к подборкам</a>
@@ -1067,8 +1056,6 @@
             </div>
         </div>
     </div>
-    
-    <!-- Подборка философских книг -->
     <div id="philosophy-books" class="collection-page">
         <div class="container">
             <a href="#" class="back-btn" onclick="showCollections()"><i class="fas fa-arrow-left"></i>Назад к подборкам</a>
@@ -1113,8 +1100,6 @@
             </div>
         </div>
     </div>
-    
-    <!-- Подборка любимых фильмов админов -->
     <div id="admin-favorites" class="collection-page">
         <div class="container">
             <a href="#" class="back-btn" onclick="showCollections()"><i class="fas fa-arrow-left"></i>Назад к подборкам</a>
@@ -1172,8 +1157,6 @@
             </div>
         </div>
     </div>
-    
-    <!-- НОВАЯ ПОДБОРКА - МЕМЧИКИ С КОТЯТАМИ -->
     <div id="cat-memes" class="collection-page">
         <div class="container">
             <a href="#" class="back-btn" onclick="showCollections()"><i class="fas fa-arrow-left"></i>Назад к подборкам</a>
@@ -1218,6 +1201,93 @@
             </div>
         </div>
     </div>
+    <div id="top-anime" class="collection-page">
+        <div class="container">
+            <a href="#" class="back-btn" onclick="showCollections()"><i class="fas fa-arrow-left"></i>Назад к подборкам</a>
+            <div class="collection-detail">
+                <div class="collection-header">
+                    <div class="collection-cover" style="background-image: url('https://i.pinimg.com/736x/85/e5/6a/85e56a2b4c7f0a542a704c36a2b59880.jpg')"></div>
+                    <div class="collection-info">
+                        <h2>Топ-10 Аниме</h2>
+                        <p>Лучшие аниме-сериалы, которые заставят задуматься о жизни, борьбе и поиске себя в этом сложном мире. От эпических саг о мести и становлении до философских размышлений о природе человека.</p>
+                    </div>
+                </div>
+                <div class="items-list">
+                    <div class="item">
+                        <div class="item-img" style="background-image: url('https://static.wikia.nocookie.net/berserk/images/d/de/V1-Cover-Manga.jpg/revision/latest/scale-to-width-down/476?cb=20210211210752&path-prefix=ru')"></div>
+                        <div class="item-content">
+                            <h3>1. Берсерк (1997)</h3>
+                            <p>Мрачная и жестокая история о наемнике Гатсе, который ищет свою судьбу в мире, полном предательства и темной магии. Философская глубина, сложные персонажи и темы рока, свободы воли и цены мести делают этот сериал культовым.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-img" style="background-image: url('https://avatars.mds.yandex.net/get-kinopoisk-image/6201401/1dcf1d66-57d3-4f5c-93aa-115bf53b0996/600x900')"></div>
+                        <div class="item-content">
+                            <h3>2. Сага о Винланде (2019)</h3>
+                            <p>История Торфинна, сына легендарного воина, который ищет мести за смерть отца, но находит нечто большее - путь к истинной силе, которая заключается не в насилии, а в созидании и защите слабых.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-img" style="background-image: url('https://preview.redd.it/should-i-watch-the-vagabond-anime-in-2025-v0-61c193rpm9ff1.jpeg?auto=webp&s=9d09d07754e0d960ed9414f6918e57f1a360da66')"></div>
+                        <div class="item-content">
+                            <h3>3. Вагабонд (манга)</h3>
+                            <p>Хотя это манга, а не аниме, она заслуживает места в этой подборке. История Миямото Мусаси, одного из величайших мечников Японии, и его пути к просветлению через бесчисленные битвы и духовные поиски.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-img" style="background-image: url('https://static.insales-cdn.com/r/QFeCX8Ddggg/rs:fit:1000:0:1/plain/images/products/1/1468/449160636/uymd2pptqnu.jpg@jpg')"></div>
+                        <div class="item-content">
+                            <h3>4. Аватар: Легенда об Аанге (2005)</h3>
+                            <p>История мальчика Аанга, последнего мага воздуха, который должен освоить все четыре стихии и восстановить баланс в мире, охваченном войной. Глубокие философские темы, основанные на восточной философии.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-img" style="background-image: url('https://avatars.mds.yandex.net/get-kinopoisk-image/1600647/886786c0-c93a-4034-b8a8-a7300fe97250/600x900')"></div>
+                        <div class="item-content">
+                            <h3>5. Ковбой Бибоп (1998)</h3>
+                            <p>Нео-нуарная история охотников за головами в космосе, которые сталкиваются с призраками своего прошлого. Философские размышления об одиночестве, искуплении и поиске своего места во вселенной.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/ru/1/1b/18-ghost-in-the-shell-body-style-japanese-b2-1995-01.jpg')"></div>
+                        <div class="item-content">
+                            <h3>6. Призрак в доспехах (1995)</h3>
+                            <p>Классика киберпанка, исследующая природу сознания и идентичности в мире, где граница между человеком и машиной становится все более размытой. Философские вопросы о том, что делает нас людьми.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-img" style="background-image: url('https://avatars.mds.yandex.net/get-kinopoisk-image/1946459/e849937d-99d7-418f-bbaa-0a7e7cfff385/600x900')"></div>
+                        <div class="item-content">
+                            <h3>7. Твоё имя (2016)</h3>
+                            <p>Волшебная история о двух подростках, которые mysteriously меняются телами и должны найти друг друга, чтобы предотвратить катастрофу. Трогательное размышление о судьбе, времени и связи между людьми.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-img" style="background-image: url('https://avatars.mds.yandex.net/get-kinopoisk-image/1777765/ff14c060-0ffa-463d-9add-3d3d59948319/600x900')"></div>
+                        <div class="item-content">
+                            <h3>8. Евангелион (1995)</h3>
+                            <p>Сложное и глубокое аниме, сочетающее меха-экшен с психологическим анализом персонажей и философскими размышлениями о природе человеческого сознания, одиночества и смысла существования.</p>
+				<h3>я создатель данного сайта и я хочу жену аску, спасибо</h3>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-img" style="background-image: url('https://avatars.mds.yandex.net/get-kinopoisk-image/9784475/8910a865-9915-4844-ad89-d4812f64a16e/600x900')"></div>
+                        <div class="item-content">
+                            <h3>9. Ходячий замок (2004)</h3>
+                            <p>Волшебная история о девушке, превращенной в старуху, и ее путешествии в компании загадочного волшебника и движущегося замка. Фильм исследует темы самопознания, любви и принятия себя.</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/ru/1/18/FullMetalAlchemist.jpg')"></div>
+                        <div class="item-content">
+                            <h3>10. Стальной алхимик: Братство (2009)</h3>
+                            <p>Эпическая история двух братьев, которые ищут философский камень, чтобы вернуть свои тела после неудачной попытки воскресить мать. Глубокое исследование тем жертвы, равновесия и ценности человеческой жизни.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <!-- Футер -->
     <footer>
@@ -1227,7 +1297,6 @@
     </footer>
 
     <script>
-        // Функции для навигации между страницами
         function showHome() {
             document.getElementById('home').style.display = 'flex';
             document.getElementById('collections-section').style.display = 'none';
@@ -1236,6 +1305,7 @@
             document.getElementById('philosophy-books').style.display = 'none';
             document.getElementById('admin-favorites').style.display = 'none';
             document.getElementById('cat-memes').style.display = 'none';
+            document.getElementById('top-anime').style.display = 'none';
             closeMobileMenu();
             window.scrollTo(0, 0);
         }
@@ -1248,6 +1318,7 @@
             document.getElementById('philosophy-books').style.display = 'none';
             document.getElementById('admin-favorites').style.display = 'none';
             document.getElementById('cat-memes').style.display = 'none';
+            document.getElementById('top-anime').style.display = 'none';
             closeMobileMenu();
             window.scrollTo(0, 0);
         }
@@ -1260,13 +1331,12 @@
             document.getElementById('philosophy-books').style.display = 'none';
             document.getElementById('admin-favorites').style.display = 'none';
             document.getElementById('cat-memes').style.display = 'none';
+            document.getElementById('top-anime').style.display = 'none';
             
             document.getElementById(collectionId).style.display = 'block';
             closeMobileMenu();
             window.scrollTo(0, 0);
         }
-        
-        // Мобильное меню
         function toggleMobileMenu() {
             const mobileNav = document.querySelector('.mobile-nav');
             mobileNav.classList.toggle('active');
@@ -1276,16 +1346,12 @@
             const mobileNav = document.querySelector('.mobile-nav');
             mobileNav.classList.remove('active');
         }
-        
-        // Прокрутка наверх
         function scrollToTop() {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
         }
-        
-        // Отслеживание прокрутки для кнопки "Наверх"
         window.addEventListener('scroll', function() {
             const scrollToTopBtn = document.querySelector('.scroll-to-top');
             if (window.pageYOffset > 300) {
@@ -1294,17 +1360,11 @@
                 scrollToTopBtn.classList.remove('visible');
             }
         });
-        
-        // Обработчики событий для мобильного меню
         document.querySelector('.mobile-menu-btn').addEventListener('click', toggleMobileMenu);
         document.querySelector('.close-menu').addEventListener('click', closeMobileMenu);
-        
-        // Закрытие мобильного меню при клике на ссылку
         document.querySelectorAll('.mobile-nav a').forEach(link => {
             link.addEventListener('click', closeMobileMenu);
         });
-        
-        // Показываем главную страницу при загрузке
         window.onload = function() {
             showHome();
         };
